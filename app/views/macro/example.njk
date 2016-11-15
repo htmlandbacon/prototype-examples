@@ -1,0 +1,33 @@
+{#
+
+The macro backLink takes two paramters, URL and TITLE, the title has a default of back.
+
+It can be called in two ways, but first we'll need to import the macro into the page
+
+{% import '../../macro/example.njk' as macro %}
+
+This now gives us access to all the macros from the macro var, now to call the macro
+
+{% macro.backLink('this-is-a-url')}
+
+This will genereate the following:
+
+<a href="this-is-a-url">back</a>
+
+Because the second param is defaulted to back, we can over ride it!
+
+{% macro.backLink('this-is-a-url', 'this is a title')}
+
+This will genereate the following:
+
+<a href="this-is-a-url">this is a title</a>
+
+While not a complex macro, you can do a lot towards moving to re-usable code.
+
+#}
+
+{% macro backLink(url, title = "back") %}
+
+  <a href="{{ url }}" class="link-back">{{ title }}</a>
+
+{% endmacro %}

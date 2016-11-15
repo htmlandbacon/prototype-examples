@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="back-link">back</a>
+      <h1 class="heading-xlarge">
+      Session Data
+      </h1>
+
+      <form method="post" action="/utils/session">
+        <div class="form-group">
+          <label for="data">Session data (req.session.data)</label>
+          <textarea name="data" class="form-control form-contro" rows="10" id="data">{{ session }}</textarea>
+        </div>
+                  <button class="button">Update</button>
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

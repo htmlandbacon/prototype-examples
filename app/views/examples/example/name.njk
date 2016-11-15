@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {{ macro.backLink('/example/start') }}
+      <h1 class="heading-xlarge">
+      Tell us about you?
+      </h1>
+
+      <form method="post" action="/example/what-is-your-name">
+
+        <div class="form-group">
+          <label for="data" class="form-label-bold">Name</label>
+          <input type="text" name="name" class="form-control" value="{{ name }}" />
+        </div>
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

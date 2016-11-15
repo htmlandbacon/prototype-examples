@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {% if age === 'no' %}
+        {{ macro.backLink('/example/what-is-your-parents-name') }}
+      {% else %}
+        {{ macro.backLink('/example/are-you-over-18') }}
+      {% endif %}
+      <h1 class="heading-xlarge">
+      Review your details
+      </h1>
+
+      <table>
+        <tr>
+          <td>Name:</td><td> {{ name }}</td>
+        </tr>
+        <tr>
+          <td>Email:</td><td> {{ email }}</td>
+        </tr>
+        <tr>
+          <td>Are you over 18?</td><td> {{ age  | capitalize }}</td>
+        </tr>
+        {% if age === 'no' %}
+        <tr>
+          <td>Parents Surname</td><td> {{ surname }}</td>
+        </tr>
+        {% endif %}
+      </table>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        {{ macro.backLink('/') }}
+      <h1 class="heading-xlarge">
+      Review your details
+      </h1>
+
+      <table>
+        <tr>
+          <td>Invite Key:</td><td> {{ inviteKey }}</td>
+        </tr>
+        <tr>
+          <td>Name:</td><td> {{ name }}</td>
+        </tr>
+        <tr>
+          <td>Date of Birth:</td><td> {{ dob  | capitalize }}</td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+      Query strings
+      </h1>
+
+      <p>Var 1 : <strong>{{ variable1 }}</strong>.</p>
+
+      <p>Var 2 : <strong>{{ variable2 }}</strong>.</p>
+
+      <p>Var 1 Var 2 : <strong>{{ variable1 }} {{ variable2 }}</strong>.</p>
+
+      <p>To change, update the <strong>{{ variable1 }}</strong> or <strong>{{ variable2 }}</strong> to something else.</p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

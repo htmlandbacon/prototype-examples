@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+        ENV VARS
+      </h1>
+
+      <p>You can set varibles when your application is running, this can be very useful in a user research session, as you could adapt the data to the session.</p>
+
+      <p>if you look at /api/login you will see some fake details I have populated.</a>
+
+      <p>API_INVITE_KEY='TEST' gulp</p>
+
+      <p>You can also update API_NAME and API_DOB, if this was Heroku, you could update these the same way you add a username and password.</p>
+
+      <p>This can be found under the API routes folder.</p>
+
+			</ul>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

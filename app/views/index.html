@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        Prototype kit examples
+      </h1>
+
+      <h2> Routing </h2>
+
+      <ul class="list list-bullet">
+				<li>
+          <a href="/routing/params-single/a">Paramter routing</a>
+        </li>
+        <li>
+          <a href="/routing/query-example?welcome=hello&amp;user=user1">Query</a>
+        </li>
+        <li>
+          <a href="/routing/query-example-magic?one=hello&amp;two=user1&amp;three=gooodbye">Query magic</a>
+        </li>
+        <li>
+          <a href="/routing/get-to-post">Get/Post routing</a>
+        </li>
+        <li>
+          <a href="/routing/all">All routing</a>
+        </li>
+      </ul>
+      <h2> Sessions </h2>
+
+
+			<ul class="list list-bullet">
+        <li>
+          <a href="/session/get-to-post">Session storing</a>
+				</li>
+        <li>
+          <a href="/session/details">Pre loaded session</a>
+        </li>
+        <li>
+          <a href="/session/details-advanced">Pre loaded Advacned session</a>
+        </li>
+				<li>
+          <a href="/utils/session">Session details</a>
+				</li>
+			</ul>
+
+      <h2> Examples </h2>
+      <ul class="list list-bullet">
+        <li>
+          <a href="/example/start">Full review example</a>
+				</li>
+        <li>
+          <a href="/tutorials/macro.html">Macro Introduction</a>
+				</li>
+        <li>
+          <a href="/tutorials/vars.html">ENV vars</a>
+				</li>
+        <li>
+          <a href="/tutorials/login">Using ENV vars part 1</a>
+				</li>
+        <li>
+          <a href="/tutorials/login">Using ENV vars part 2</a>
+				</li>
+			</ul>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

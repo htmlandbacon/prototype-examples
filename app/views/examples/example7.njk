@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+      SESSION DATA
+      </h1>
+
+      {% if radio %}
+
+      <form>
+        <div class="form-group">
+          <fieldset>
+
+            <legend class="form-label-bold">Select an ice cream</legend>
+
+            {% for value in radio %}
+             <label class="block-label" for="icecream-{{ loop.index }}">
+              <input id="icecream-{{ loop.index }}" type="radio" name="icecream" value="{{ value }}">
+              {{ value }}
+            </label>
+            {% endfor %}
+
+          </fieldset>
+        </div>
+      </form>
+
+
+      {% else %}
+        <p> Session data is not set for radio buttons, add {"radio": ["Chocolate", "Double Chocolate", "Snozberry"]} to the session</p>
+      {% endif %}
+
+
+
+      <a href="/utils/session">Add session data</a>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

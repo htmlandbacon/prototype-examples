@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {{ macro.backLink('/') }}
+      <h1 class="heading-xlarge">
+      Tell us about you?
+      </h1>
+
+      <form method="post" action="{{ url }}">
+
+        <div class="form-group{% if error %} error {% endif %}">
+          <label for="data" class="form-label-bold">Invite Key
+            {% if error %}
+              <p class="error-message">{{ error }}</p>
+            {% endif %}
+          </label>
+          <input type="text" name="inviteKey" class="form-control" value="{{ inviteKey }}" />
+        </div>
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

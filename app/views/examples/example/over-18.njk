@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {{ macro.backLink('/example/what-is-your-email') }}
+      <h1 class="heading-xlarge">
+      Tell us about your age?
+      </h1>
+
+
+      <form method="post" action="/example/are-you-over-18">
+        <div class="form-group">
+          <fieldset class="inline">
+
+            <legend class="form-label-bold">Are you over 18?</legend>
+
+             <label class="block-label" for="age-yes">
+              <input id="age-yes" type="radio" name="age" value="yes"   {% if age === 'yes' %} checked  {% endif %}>
+              Yes
+            </label>
+
+            <label class="block-label" for="age-no">
+             <input id="age-no" type="radio" name="age" value="no" {% if age === 'no' %} checked  {% endif %}>
+             No
+           </label>
+
+          </fieldset>
+        </div>
+        <button class="button">Submit</button>
+
+      </form>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

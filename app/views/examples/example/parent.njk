@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {{ macro.backLink('/example/are-you-over-18') }}
+      <h1 class="heading-xlarge">
+      Tell us about your parents?
+      </h1>
+
+      <form method="post" action="/example/what-is-your-parents-name">
+
+        <div class="form-group">
+          <label for="data" class="form-label-bold">Surname</label>
+          <input type="text" name="surname" class="form-control" value="{{ surname }}" />
+        </div>
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+      Session
+      </h1>
+
+      <form method="post" action="{{ url }}">
+
+        {% if formData.name  or formData.email %}
+          <p>We now have session data.</p>
+        {% endif %}
+
+        <div class="form-group">
+          <label for="data" class="form-label-bold">Name</label>
+          <input type="text" name="name" class="form-control" rows="10" value="{{ formData.name }}" />
+        </div>
+
+        <div class="form-group">
+          <label for="email" class="form-label-bold">Email</label>
+          <input type="text" name="email" class="form-control" rows="10" value="{{ formData.email }}" />
+        </div>
+
+        <button class="button">Update</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

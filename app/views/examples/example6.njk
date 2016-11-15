@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+      SESSION DATA
+      </h1>
+
+      {% if userData.username %}
+        <p> You are logged in as <strong> {{ userData.username }} </strong>.</p>
+      {% else %}
+        <p> Session data is not set for username, add {"userData": {"username": "YOURNAME"}} to the session</p>
+      {% endif %}
+
+
+
+      <a href="/utils/session">Add session data</a>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
