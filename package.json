@@ -37,6 +37,23 @@
     "run-sequence": "^1.2.2",
     "serve-favicon": "2.3.0",
     "standard": "^7.1.2",
-    "sync-request": "^3.0.1"
+    "sync-request": "^3.0.1",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "env": [
+      "mocha",
+      "jquery",
+      "browser"
+    ],
+    "ignores": [
+      "app/assets/javascripts/**",
+      "coverage/**",
+      "govuk_modules/**",
+      "external_modules/**",
+      "public/**"
+    ],
+    "space": 2,
+    "semicolon": false
   }
 }

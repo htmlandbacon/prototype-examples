@@ -1,24 +1,24 @@
 const express = require('express')
 const rp = require('request-promise')
-const router = express.Router()
+
+const router = new express.Router()
 
 // base get page
 router.get('/login', function (req, res) {
-  res.render('examples/login/input.njk', {url: '/tutorials/login'});
+  res.render('examples/login/input.njk', {url: '/tutorials/login'})
 })
-
 
 // base error page with login/not logged in
 router.post('/login', function (req, res) {
   // first of all we do some stuff with request promise, this will make a POST to the below URL
   var request = {
-      method: 'POST',
-      url: 'http://localhost:3000/api/login-auth',
-      body: {
-          inviteKey: req.body.inviteKey
-      },
-      json: true
-  };
+    method: 'POST',
+    url: 'http://localhost:3000/api/login-auth',
+    body: {
+      inviteKey: req.body.inviteKey
+    },
+    json: true
+  }
   /*
 
   promises are neat -
@@ -34,13 +34,13 @@ router.post('/login', function (req, res) {
   rp(request)
     .then(function (body) {
       // This will render out the details from the API
-      res.render('examples/login/details.njk', body);
+      res.render('examples/login/details.njk', body)
     })
     .catch(function (err) {
       // This will then render the orginal page with and error
-      console.log(err.message);
-      res.render('examples/login/input.njk', {inviteKey: req.body.inviteKey, error: 'Invite key is invalid.'});
-    });
+      console.log(err.message)
+      res.render('examples/login/input.njk', {inviteKey: req.body.inviteKey, error: 'Invite key is invalid.'})
+    })
 })
 
 module.exports = router

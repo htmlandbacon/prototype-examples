@@ -2,14 +2,16 @@ const path = require('path')
 const express = require('express')
 const session = require('express-session')
 const nunjucks = require('nunjucks')
-const routes = require('./app/routes.js')
 const favicon = require('serve-favicon')
-let app = express()
 const bodyParser = require('body-parser')
 const browserSync = require('browser-sync')
+
+const routes = require('./app/routes.js')
 const config = require('./app/config.js')
 const utils = require('./lib/utils.js')
 const packageJson = require('./package.json')
+
+let app = express()
 
 // Grab environment variables specified in Procfile or as Heroku config vars
 const releaseVersion = packageJson.version
@@ -99,14 +101,13 @@ app.get('/robots.txt', function (req, res) {
 })
 
 // routes (found in app/routes.js)
-if (typeof (routes) !== 'function') {
+if (typeof (routes) === 'function') {
+  app.use('/', routes)
+} else {
   console.log(routes.bind)
   console.log('Warning: the use of bind in routes is deprecated - please check the prototype kit documentation for writing routes.')
   routes.bind(app)
-} else {
-  app.use('/', routes)
 }
-
 
 // Strip .html and .htm if provided
 app.get(/\.html?$/i, function (req, res) {

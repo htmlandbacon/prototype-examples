@@ -1,9 +1,10 @@
 const express = require('express')
-const router = express.Router()
+
+const router = new express.Router()
 
 // Route index page
 router.get('/session', function (req, res) {
-  res.render('session.njk', {session: JSON.stringify(req.session.data)});
+  res.render('session.njk', {session: JSON.stringify(req.session.data)})
 })
 
 router.post('/session', function (req, res) {
@@ -12,7 +13,7 @@ router.post('/session', function (req, res) {
 })
 
 router.get('/session-full', function (req, res) {
-  res.render('session.njk', {session: JSON.stringify(req.session)});
+  res.render('session.njk', {session: JSON.stringify(req.session)})
 })
 
 module.exports = router
