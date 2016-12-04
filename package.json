@@ -16,6 +16,7 @@
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
     "browser-sync": "^2.17.5",
+    "colors": "^1.1.2",
     "express": "4.13.3",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",

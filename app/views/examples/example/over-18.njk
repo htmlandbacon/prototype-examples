@@ -17,11 +17,11 @@
 
 
       <form method="post" action="/example/are-you-over-18">
-        <div class="form-group">
+        <div class="form-group{% if error.age %} error{% endif %}">
           <fieldset class="inline">
 
             <legend class="form-label-bold">Are you over 18?</legend>
-
+              {% if error.age %}<span class="error-message">{{ error.age }}</span> {% endif %}
              <label class="block-label" for="age-yes">
               <input id="age-yes" type="radio" name="age" value="yes"   {% if age === 'yes' %} checked  {% endif %}>
               Yes

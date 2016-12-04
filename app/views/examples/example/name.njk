@@ -17,8 +17,9 @@
 
       <form method="post" action="/example/what-is-your-name">
 
-        <div class="form-group">
+        <div class="form-group{% if error.name %} error{% endif %}">
           <label for="data" class="form-label-bold">Name</label>
+          {% if error.name %}<span class="error-message">{{ error.name }}</span> {% endif %}
           <input type="text" name="name" class="form-control" value="{{ name }}" />
         </div>
         <button class="button">Submit</button>

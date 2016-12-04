@@ -5,6 +5,7 @@ const nunjucks = require('nunjucks')
 const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const browserSync = require('browser-sync')
+const colors = require('colors');
 
 const routes = require('./app/routes.js')
 const config = require('./app/config.js')
@@ -128,6 +129,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 console.log('\nGOV.UK Prototype kit v' + releaseVersion)
 // Display warning not to use kit for production services.
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')
+console.log(' > Welcome to a selection of examples ^_^ <  '.black.bgYellow);
 
 // start the app
 utils.findAvailablePort(app, function (port) {
