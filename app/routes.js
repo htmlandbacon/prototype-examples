@@ -39,4 +39,15 @@ const loginRoutesNoApi = require('./login/routes-less.js')
 
 router.use('/tutorials', loginRoutesNoApi)
 
+const exercisesOne = require('./exercises/one.js')
+
+
+// exercises routes
+
+router.use('/exercises', exercisesOne)
+
+const exercisesTwo = require('./exercises/two.js')
+
+router.use('/exercises', exercisesTwo)
+
 module.exports = router
