@@ -5,7 +5,7 @@ const nunjucks = require('nunjucks')
 const favicon = require('serve-favicon')
 const bodyParser = require('body-parser')
 const browserSync = require('browser-sync')
-const colors = require('colors');
+const colors = require('colors')
 
 const routes = require('./app/routes.js')
 const config = require('./app/config.js')
@@ -76,6 +76,18 @@ app.use(function (req, res, next) {
   next()
 })
 
+// logging stuff
+app.use(function (req, res, next) {
+  if (req.method === 'POST') {
+    console.log(` ==> ${req.method} request on ${req.url}  `.green)
+    console.log(req.body)
+    console.log(` ^ params are above  `.green)
+  } else {
+    console.log(` ==> ${req.method} request on ${req.url}  `.yellow)
+  }
+  next()
+})
+
 // Add variables that are available in all views
 app.use(function (req, res, next) {
   res.locals.serviceName = config.serviceName
@@ -129,7 +141,7 @@ app.get(/^\/([^.]+)$/, function (req, res) {
 console.log('\nGOV.UK Prototype kit v' + releaseVersion)
 // Display warning not to use kit for production services.
 console.log('\nNOTICE: the kit is for building prototypes, do not use it for production services.')
-console.log(' > Welcome to a selection of examples ^_^ <  '.black.bgYellow);
+console.log(` > Welcome to a selection of examples ^_^ <  `.black.bgYellow)
 
 // start the app
 utils.findAvailablePort(app, function (port) {

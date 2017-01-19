@@ -9,14 +9,14 @@ router.get('/start', function (req, res) {
 
 // second page with name collection
 router.all('/what-is-your-name', function (req, res) {
-  let error = {};
+  let error = {}
   // this is a route all, so when we get a post, we save the session and redirect them
   if (req.method === 'POST' && req.body.name !== '') {
     req.session.name = req.body.name
     res.redirect('/example/what-is-your-email')
   } else {
-    if(req.method === 'POST' && req.body.name === '') {
-      error.name = "Required Field."
+    if (req.method === 'POST' && req.body.name === '') {
+      error.name = 'Required Field.'
     }
     res.render('examples/example/name.njk', {error: error, name: req.session.name})
   }
@@ -30,8 +30,8 @@ router.get('/what-is-your-email', function (req, res) {
 // we have a seperate route here to deal with the form post
 router.post('/what-is-your-email', function (req, res) {
   if (req.body.email === '') {
-    let error = {};
-    error.email = "Required Field."
+    let error = {}
+    error.email = 'Required Field.'
     res.render('examples/example/email.njk', {error: error, email: req.session.email})
   } else {
     req.session.email = req.body.email
@@ -43,8 +43,10 @@ router.post('/what-is-your-email', function (req, res) {
 // if body.age === yes redirect
 router.all('/are-you-over-18', function (req, res) {
   if (req.body.age === undefined) {
-    let error = {};
-    error.age = "Required Field."
+    let error = {}
+    if (req.method === 'POST' && req.body.age === undefined) {
+      error.age = 'Required Field.'
+    }
     res.render('examples/example/over-18.njk', {error: error, age: req.session.age})
   } else {
     req.session.age = req.body.age

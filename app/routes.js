@@ -41,7 +41,6 @@ router.use('/tutorials', loginRoutesNoApi)
 
 const exercisesOne = require('./exercises/one.js')
 
-
 // exercises routes
 
 router.use('/exercises', exercisesOne)
