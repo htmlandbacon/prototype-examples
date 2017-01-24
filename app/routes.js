@@ -31,6 +31,11 @@ const apiRoutes = require('./api/routes.js')
 
 router.use('/api', apiRoutes)
 
+
+const tutorialRoutes = require('./tutorials/routes.js')
+
+router.use('/tutorials', tutorialRoutes)
+
 const loginRoutes = require('./login/routes.js')
 
 router.use('/tutorials', loginRoutes)

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% from "gov-input/macro.njk" import govInput %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+      GOV-INPUT
+      </h1>
+      <code>
+        <p>this has the following settings:</p>
+        <p>name, id, label, hint, value, error, maxlength</p>
+      </code>
+      {{ govInput(id="field", name="field", error="This is an error", maxlength="40", value="hello", label="This is a field") }}
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
