@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+        Update {{name}}'s age
+      </h1>
+
+      
+      <form action="" method="POST">
+        <label>
+            Age
+            <input type="text" name="age" value="34" />
+        </label>
+        <button>Save</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

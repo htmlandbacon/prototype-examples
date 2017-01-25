@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+        Nino search
+      </h1>
+
+      <form action="" method="POST">
+        <input type="search" name="nino" />
+        <button>Search</button>
+      </form>
+
+      {% if error %}
+        <p>You have an error</p>
+      {% endif %}
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
