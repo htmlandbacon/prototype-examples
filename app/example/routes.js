@@ -69,7 +69,15 @@ router.all('/what-is-your-parents-name', function (req, res) {
 
 // review page
 router.get('/review', function (req, res) {
+  /*
+  ES6 version =>
+  const {email, name, age, surname} = req.session
+  res.render('examples/example/review.njk', {email, name, age, surname})
+
+  */
+
   let data = {}
+
   data.email = req.session.email
   data.name = req.session.name
   data.age = req.session.age
