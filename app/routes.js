@@ -31,7 +31,6 @@ const apiRoutes = require('./api/routes.js')
 
 router.use('/api', apiRoutes)
 
-
 const tutorialRoutes = require('./tutorials/routes.js')
 
 router.use('/tutorials', tutorialRoutes)
@@ -53,5 +52,11 @@ router.use('/exercises', exercisesOne)
 const exercisesTwo = require('./exercises/two.js')
 
 router.use('/exercises', exercisesTwo)
+
+// examples from you */
+
+const leeds = require('./team/leeds.js')
+
+router.use('/leeds', leeds)
 
 module.exports = router
