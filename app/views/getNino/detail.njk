@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+        {{name}}
+      </h1>
+
+      <table>
+        <tbody>
+          <tr>
+            <td>Nino</td>
+            <td>{{nino}}</td>
+          </tr>
+          <tr>
+            <td>Name</td>
+            <td>{{name}}</td>
+          </tr>
+          <tr>
+            <td>Age</td>
+            <td>{{age}} <a href="/exercises/update/{{nino}}/{{name}}">Update</a></td>
+          </tr>
+          <tr>
+            <td>Hair colour</td>
+            <td>Brown</td>
+          </tr>
+        </tbody>
+      </table>
+      <form action="" method="POST">
+        <textarea name="notes">{{notes}}</textarea>
+        <button>Save</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <a href="/" class="link-back">back</a>
+      <h1 class="heading-xlarge">
+        Nino search results
+      </h1>
+
+      <table>
+        <thead>
+          <th>Nino</th>
+          <th>Name</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{nino}}</td>
+            <td><a href="/exercises/getNino/{{nino}}?name=Gary Boyle">Gary Boyle</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
