@@ -11,13 +11,14 @@
       </h1>
 
       <form action="" method="POST">
-        <input type="search" name="nino" />
-        <button>Search</button>
+      <div class="form-group{% if error %} error{% endif %}">
+        {% if error %}
+          <p class="error-message">Please enter a nino</p>
+        {% endif %}
+        <input class="form-control" type="search" name="nino" />
+      </div>
+        <button class="button">Search</button>
       </form>
-
-      {% if error %}
-        <p>You have an error</p>
-      {% endif %}
 
     </div>
   </div>

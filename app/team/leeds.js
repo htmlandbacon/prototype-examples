@@ -1,6 +1,17 @@
 const express = require('express')
 
 const router = new express.Router()
+
+// little function to get age or show default - this is reused so moved it here
+function getAge(session) {
+  return session.age || '34'
+}
+
+// little function to get notes or show empty - this is reused so moved it here
+function getNote(session) {
+  return session.notes || ''
+}
+
 // index router with search get/post
 // get: show search bar
 // post: show search bar and results or error
@@ -22,23 +33,26 @@ router.get('/searchResults/:nino', function (req, res) {
 })
 
 router.get('/getNino/:nino', function (req, res) {
-  const age = req.session.age || '34'
-  res.render('getNino/detail.njk', {age, nino: req.params.nino, name: req.query.name, notes: req.session.notes})
+  console.log(req.session)
+  const age = getAge(req.session)
+  const notes = getNote(req.session)
+  res.render('getNino/detail.njk', {age, notes, nino: req.params.nino, name: req.query.name})
 })
 
 router.post('/getNino/:nino', function (req, res) {
   // save the notes in a session
-  req.session.notes = req.body.notes
-  res.render('getNino/detail.njk', {nino: req.params.nino, name: req.query.name, notes: req.session.notes})
+  req.session.note = req.body.notes
+  const age = getAge(req.session)
+  res.render('getNino/detail.njk', {age, nino: req.params.nino, name: req.query.name, notes: req.body.notes})
 })
 
 // update record
-router.get('/update/:nino/:name', function (req, res) {
-  res.render('getNino/update.njk', {nino: req.params.nino, name: req.params.name})
+router.get('/update/:nino/:name/:age', function (req, res) {
+  res.render('getNino/update.njk', {nino: req.params.nino, name: req.params.name, age: req.params.age})
 })
 
 // update notes
-router.post('/update/:nino/:name', function (req, res) {
+router.post('/update/:nino/:name/:age', function (req, res) {
   req.session.age = req.body.age
   res.redirect(`/leeds/getNino/${req.params.nino}?name=${req.params.name}`)
 })

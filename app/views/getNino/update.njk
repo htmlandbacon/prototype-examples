@@ -10,14 +10,19 @@
         Update {{name}}'s age
       </h1>
 
-      
-      <form action="" method="POST">
-        <label>
-            Age
-            <input type="text" name="age" value="34" />
-        </label>
-        <button>Save</button>
-      </form>
+      <div class="form-group">
+        <form action="" method="POST">
+        <div class="form-group">
+            <label class="form-label">
+                Age
+                <input class="form-control" type="text" name="age" value="{{age}}" />
+            </label>
+          </div>
+          <div class="form-group">
+            <button class="button">Save</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </main>

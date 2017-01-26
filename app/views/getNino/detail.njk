@@ -22,7 +22,7 @@
           </tr>
           <tr>
             <td>Age</td>
-            <td>{{age}} <a href="/leeds/update/{{nino}}/{{name}}">Update</a></td>
+            <td>{{age}} <a href="/leeds/update/{{nino}}/{{name}}/{{age}}">Update</a></td>
           </tr>
           <tr>
             <td>Hair colour</td>
@@ -30,9 +30,13 @@
           </tr>
         </tbody>
       </table>
+      <br />
       <form action="" method="POST">
-        <textarea name="notes">{{notes}}</textarea>
-        <button>Save</button>
+        <div class="form-group">
+          <label for="notes" class="form-label-bold">Notes:</label>
+          <textarea name="notes" class="form-group" row="10">{{notes}}</textarea>
+        </div>
+        <button class="button">Save</button>
       </form>
     </div>
   </div>
