@@ -9,7 +9,7 @@
   "scripts": {
     "start": "if [ -d \"node_modules\" ]; then gulp; else echo 'gulp is missing - try running npm install' ; fi",
     "lint": "standard",
-    "test": "NPM=true npm run lint"
+    "test": "RUNNING_NPM=true npm run lint"
   },
   "dependencies": {
     "basic-auth": "^1.0.3",

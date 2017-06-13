@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% import '../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      {{ macro.backLink('/auto-session/bank') }}
+      <h1 class="heading-xlarge">
+      Review your details
+      </h1>
+
+      <table>
+        <tr>
+          <td>First name:</td><td> {{ data.names.firstName }}</td>
+        </tr>
+        <tr>
+          <td>Last name:</td><td> {{ data.names.lastName }}</td>
+        </tr>
+        <tr>
+          <td>Account Number:</td><td> {{ data.bank.accountNumber }}</td>
+        </tr>
+        <tr>
+          <td>Sort code:</td><td>{{ data.bank.sortCode01 }}-{{ data.bank.sortCode02 }}-{{ data.bank.sortCode03 }}</td>
+        </tr>
+      </table>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

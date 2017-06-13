@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% import '../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    {{ macro.backLink('/') }}
+      <h1 class="heading-xlarge">
+      Example of auto session storing
+      </h1>
+
+      <p>This adds form data straight into the session.</p>
+
+      <p>This comes in two parts</p>
+
+      <p>1. Storing the data</p>
+
+      <p>2. Displaying the data</p>
+      
+      <a class="button button-start" href="/auto-session/name" role="button">Start now</a>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

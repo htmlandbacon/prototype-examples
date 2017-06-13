@@ -222,6 +222,7 @@ if (promoMode === 'true') {
 app.use(function (req, res, next) {
   if (req.method === 'POST') {
     console.log(` ==> ${req.method} request on ${req.url}  `.green)
+    console.log(req.body);
     console.log(` ^ params are above  `.green)
   } else {
     console.log(` ==> ${req.method} request on ${req.url}  `.yellow)

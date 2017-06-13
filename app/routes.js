@@ -53,6 +53,12 @@ const exercisesTwo = require('./exercises/two.js')
 
 router.use('/exercises', exercisesTwo)
 
+// auto session
+const autoSession = require('./auto-session/routes.js')
+
+router.use('/auto-session', autoSession)
+
+
 // examples from you */
 
 const leeds = require('./team/leeds.js')

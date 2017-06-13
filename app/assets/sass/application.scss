@@ -29,3 +29,15 @@ $path: "/public/images/";
 }
 
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+
+.form-group-short .form-group {
+  float: left;
+  width: 50px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  clear: none; }
+  .form-group-short .form-group label {
+    display: block;
+    padding-bottom: 2px; }
+  .form-group-short .form-group input {
+    width: 100%; }
