@@ -1,61 +1,55 @@
 {
-  "name": "express-prototype",
+  "name": "express-prototype-examples",
   "description": "GOVUK prototyping app in Express",
-  "version": "4.0.0",
+  "version": "6.1.0",
   "private": true,
   "engines": {
-    "node": ">=4.0 <6.7"
+    "node": ">=6.0 <7.0"
   },
   "scripts": {
     "start": "if [ -d \"node_modules\" ]; then gulp; else echo 'gulp is missing - try running npm install' ; fi",
     "lint": "standard",
-    "test": "npm run lint"
+    "test": "NPM=true npm run lint"
   },
   "dependencies": {
     "basic-auth": "^1.0.3",
     "basic-auth-connect": "^1.0.0",
     "body-parser": "^1.14.1",
-    "browser-sync": "^2.17.5",
+    "browser-sync": "^2.11.1",
+    "cross-spawn": "^5.0.0",
     "colors": "^1.1.2",
-    "express": "4.13.3",
+    "dotenv": "^4.0.0",
+    "express": "4.15.2",
     "express-session": "^1.13.0",
     "express-writer": "0.0.4",
-    "govuk-elements-nunjucks": "git+https://github.com/htmlandbacon/govuk-elements-nunjucks.git",
+    "govuk-elements-nunjucks": "0.8.0 ",
     "govuk-elements-sass": "2.0.0",
     "govuk_frontend_toolkit": "^4.18.3",
-    "govuk_template_jinja": "0.18.3",
+    "govuk_template_jinja": "0.20.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
+    "gulp-mocha": "^4.3.1",
     "gulp-nodemon": "^2.1.0",
-    "gulp-sass": "^2.3.2",
-    "gulp-sourcemaps": "^1.6.0",
+    "gulp-sass": "3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
     "gulp-util": "^3.0.7",
-    "minimist": "0.0.8",
-    "nunjucks": "^2.4.2",
-    "portscanner": "^1.0.0",
-    "prompt": "^0.2.14",
-    "request-promise": "^4.1.1",
+    "marked": "^0.3.6",
+    "minimist": "1.2.0",
+    "notifications-node-client": "^3.0.0",
+    "nunjucks": "^2.5.2",
+    "portscanner": "^2.1.1",
+    "prompt": "^1.0.0",
+    "readdir": "0.0.13",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.2.2",
-    "serve-favicon": "2.3.0",
-    "standard": "^7.1.2",
-    "sync-request": "^3.0.1",
-    "xo": "^0.16.0"
+    "serve-favicon": "2.4.2",
+    "standard": "^10.0.2",
+    "supertest": "^3.0.0",
+    "sync-request": "^4.0.3"
   },
-  "xo": {
-    "env": [
-      "mocha",
-      "jquery",
-      "browser"
-    ],
-    "ignores": [
-      "app/assets/javascripts/**",
-      "coverage/**",
-      "govuk_modules/**",
-      "external_modules/**",
-      "public/**"
-    ],
-    "space": 2,
-    "semicolon": false
+  "greenkeeper": {
+    "ignore": [
+      "nunjucks"
+    ]
   }
 }
