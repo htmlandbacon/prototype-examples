@@ -1,0 +1,14 @@
+$button-color: #005ea5;
+
+.button-add:link, .button-add:visited {
+  background-color: $button-color;
+  color: $white;
+}
+
+
+.button-add:hover, .button-add:active, .button-add:link:focus {
+  color: $white;
+  background-color: darken($button-color, 5%);
+}
+
+

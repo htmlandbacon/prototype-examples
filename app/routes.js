@@ -58,6 +58,10 @@ const autoSession = require('./auto-session/routes.js')
 
 router.use('/auto-session', autoSession)
 
+// patterns
+const patternsList = require('./add-to-a-list/routes.js')
+
+router.use('/patterns', patternsList)
 
 // examples from you */
 

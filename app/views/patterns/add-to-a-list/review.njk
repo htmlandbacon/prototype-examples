@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% from 'gov-input/macro.njk' import govInput %}
+
+{% block page_title %}
+  Pattern - Add to a list Review
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    
+      <h1 class="heading-xlarge">
+        Add to a list?
+      </h1>
+
+        <p>Status: Not a thing.</p>
+
+      <form method="post" action="/patterns/add-to-a-list-review">
+      <fieldset>
+        <legend class="heading-medium">Add things</legend>
+
+        {% for item in data.thing %}
+            {% if item %}
+                <p>Thing {{loop.index }} - {{ item }}</p>
+            {% endif %}
+        {% endfor %}
+
+        </fieldset>
+        
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
