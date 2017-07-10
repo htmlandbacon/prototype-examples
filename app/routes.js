@@ -69,4 +69,11 @@ const leeds = require('./team/leeds.js')
 
 router.use('/leeds', leeds)
 
+
+// examples from you 
+
+const components = require('./components/router.js')
+
+router.use('/components', components)
+
 module.exports = router
