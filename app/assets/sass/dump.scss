@@ -12,3 +12,14 @@ $button-color: #005ea5;
 }
 
 
+.form-group-sort-code {
+  float: left;
+  width: 50px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  clear: none;
+
+  .form-control {
+    width: 100%;
+  }
+}

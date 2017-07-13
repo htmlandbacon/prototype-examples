@@ -76,4 +76,10 @@ const components = require('./components/router.js')
 
 router.use('/components', components)
 
+// banking details
+
+const bankPattern = require('./patterns/banking.js')
+
+router.use('/bank-details', bankPattern)
+
 module.exports = router

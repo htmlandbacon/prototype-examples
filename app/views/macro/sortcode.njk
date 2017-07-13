@@ -1,0 +1,27 @@
+{% macro sortCode(legend, labels, hint, sortCodePre, value, error, fieldErrors) %}
+
+<div id="{{ sortCodePre }}SortCode-form" class="form-group{% if error %} error{% else %} {{cssOptions.errorElse}} {% endif %}">
+      <fieldset>
+          {% if legend %}<legend class="form-label form-label-bold">{{ legend }}</legend> {% endif %}
+
+          {% if hint %}<p class="form-hint">{{hint}}</p> {% endif %}
+          {% if error %}<span class="error-message">{{error}}</span> {% endif %}
+
+          <div class="form-group form-group-sort-code">
+            <label for="{{ sortCodePre }}SortCodeField1" class="visuallyhidden">{{ labels.sortCodeField1 }}</label>
+            <input class="form-control{%if fieldErrors.sortCodeField1 %} {% else %} no-error {% endif %}" id="{{ sortCodePre }}SortCodeField1" name="{{ sortCodePre }}SortCodeField1" value="{{value.sortCodeField1}}" type="text" maxlength="2" {% if dataJourneyClick %} data-journey-click="{{dataJourneyClick}} 1"{% endif %} />
+          </div>
+
+          <div class="form-group form-group-sort-code">
+            <label for="{{ sortCodePre }}SortCodeField2" class="visuallyhidden">{{ labels.sortCodeField2 }}<</label>
+            <input class="form-control{%if fieldErrors.sortCodeField2 %} {% else %} no-error {% endif %}" id="{{ sortCodePre }}SortCodeField2" name="{{ sortCodePre }}SortCodeField2" value="{{value.sortCodeField2}}" type="text" maxlength="2" {% if dataJourneyClick %} data-journey-click="{{dataJourneyClick}} 2"{% endif %} />
+          </div>
+
+          <div class="form-group form-group-sort-code">
+            <label for="{{ sortCodePre }}SortCodeField3" class="visuallyhidden">{{ labels.sortCodeField3 }}</label>
+            <input class="form-control{%if fieldErrors.sortCodeField3 %} {% else %} no-error {% endif %}" id="{{ sortCodePre }}SortCodeField3" name="{{ sortCodePre }}SortCodeField3" value="{{value.sortCodeField3}}" type="text" maxlength="2" {% if dataJourneyClick %} data-journey-click="{{dataJourneyClick}} 3"{% endif %} />
+          </div>
+
+      </fieldset>
+    </div>
+{% endmacro %}
