@@ -9,12 +9,12 @@ function validateDetails (details) {
     errors.bankAccountHolder = "Enter your account holder name";
   }
 
-  if (details.bankAccountNumber === '') {
-    errors.bankAccountNumber = "Enter your bank account number";
+  if (details.SortCodeField1 === '' || details.SortCodeField2 === '' || details.SortCodeField3 === '') {
+    errors.SortCodeField1 = "Enter your sort code";
   }
 
-  if (details.SortCodeField1 === '' || details.SortCodeField2 === '' || details.SortCodeField3 === '') {
-    errors.sortCode = "Enter your sort code";
+  if (details.bankAccountNumber === '') {
+    errors.bankAccountNumber = "Enter your bank account number";
   }
 
   return errors;

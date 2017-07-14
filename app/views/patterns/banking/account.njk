@@ -1,5 +1,8 @@
 {% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
 {% from 'gov-radios/macro.njk' import govRadios %}
+{% from 'macro/radio-new.njk' import govRadiosNew %}
+{% from 'macro/global-error.njk' import errorGlobal %}
 
 {% block page_title %}
   Pattern - Your payment details
@@ -11,13 +14,17 @@
   <div class="grid-row">
     <div class="column-two-thirds">
     
+      {{ macro.backLink('/') }}
+
+      {{ errorGlobal(errors) }}
+
       <h1 class="heading-xlarge">
         Your payment details
       </h1>
 
       <form method="post" action="/bank-details/type-of-account">
 
-        {{ govRadios('account',
+        {{ govRadiosNew('account',
                         'account',
                         'How would you like to get paid?',
                         '', account, errors.account, 
