@@ -57,6 +57,19 @@ router.post('/bank-details', function (req, res) {
 })
 
 
+router.get('/building-society', function (req, res) {
+  res.render('patterns/banking/building-account-details.njk')
+})
+
+router.post('/building-society', function (req, res) {
+  const errors = validateDetails(req.body)
+  if(Object.keys(errors).length > 0) {
+    res.render('patterns/banking/building-account-details.njk', {data: req.body, errors})
+  } else {
+    res.redirect('/bank-details/done')
+  }
+})
+
 router.get('/done', function (req, res) {
   res.render('patterns/banking/done.njk')
 })
