@@ -58,6 +58,10 @@ const autoSession = require('./auto-session/routes.js')
 
 router.use('/auto-session', autoSession)
 
+// banking demo
+const bankDetails = require('./sort-code/routes.js')
+
+router.use('/bank', bankDetails)
 
 // examples from you */
 

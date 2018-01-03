@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+        This will set you as offline
+      </h1>
+
+      <p> but you are currently online, so disable wifi and refresh. </p>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+<script type="text/javascript">
+
+if (navigator.serviceWorker) {
+  navigator.serviceWorker.register('serviceWorker.js', {
+    scope: '/'
+  });
+}
+</script>
+{% endblock %}
+

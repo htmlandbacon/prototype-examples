@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% import '../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+      Building society details
+      </h1>
+      <form method="post" action="/bank/review">
+        <div class="form-group{% if error.rollNumber %} error{% endif %}">
+          <label for="rollNumber" class="form-label-bold">Roll Number</label>
+          {% if error.rollNumber %}<span class="error-message">{{ error.rollNumber }}</span> {% endif %}
+          <input type="text" id="rollNumber" name="building[rollNumber]" class="form-control" value="{{ data.building.rollNumber }}" />
+        </div>
+
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

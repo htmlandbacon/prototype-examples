@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% import '../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+      Your account details
+      </h1>
+      <form method="post" action="/bank/details" autocomplete="off">
+        <div class="form-group{% if error.accountName %} error{% endif %}">
+          <label for="accountName" class="form-label-bold">Account Name</label>
+          {% if error.accountName %}<span class="error-message">{{ error.accountName }}</span> {% endif %}
+          <input type="text" id="accountName" name="bank[accountName]" class="form-control" value="{{ data.bank.accountName }}" />
+        </div>
+
+
+        <div class="form-group{% if error.accountNumber %} error{% endif %}">
+          <label for="account-number" class="form-label-bold">Account Number</label>
+          {% if error.accountNumber %}<span class="error-message">{{ error.accountNumber }}</span> {% endif %}
+          <input type="text" id="accountNumber" name="bank[accountNumber]" class="form-control" value="{{ data.bank.accountNumber }}" />
+        </div>
+
+        <div class="form-group{% if error.sortCode %} error{% endif %}">
+            <fieldset>
+                <legend>
+                    <span class="form-label-bold">
+                    Sort Code
+                    </span>
+                    {% if error.sortCode %}<span class="error-message">{{ error.sortCode }}</span> {% endif %}
+                </legend>
+                <div class="form-date">
+                    <div class="form-group form-group-short">
+                        <label class="form-label sortCode visually-hidden" for="sortCode-start">Sort code - first two digits</label>
+                        <input class="form-control" id="sortCode-start" name="bank[sortCode01]" maxlength="2" type="text" value="{{ data.bank.sortCode01 }}" pattern="[0-9]*" min="00" max="99">
+                    </div>
+                    <div class="form-group form-group-short">
+                        <label class="form-label visually-hidden" for="sortCode-middle">Sort code - middle two digits</label>
+                        <input class="form-control" id="sortCode-middle" name="bank[sortCode02]" maxlength="2" type="text" value="{{ data.bank.sortCode02 }}" pattern="[0-9]*" min="00" max="99">
+                    </div>
+                    <div class="form-group form-group-short">
+                        <label class="form-label visually-hidden" for="sortCode-end">Sort code - middle two digits</label>
+                        <input class="form-control" id="sortCode-end" name="bank[sortCode03]" maxlength="2" type="text" value="{{ data.bank.sortCode03 }}" pattern="[0-9]*" min="00" max="99">
+                    </div>
+                </div>
+            </fieldset>
+       </div>
+
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}

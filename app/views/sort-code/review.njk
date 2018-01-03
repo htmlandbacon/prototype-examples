@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% import '../macro/example.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+      Reivew
+      </h1>
+
+
+      <table>
+        <tr>
+          <td>Account name:</td><td> {{ data.bank.accountName }}</td>
+        </tr>
+        <tr>
+          <td>Account number:</td><td> {{ data.bank.accountNumber }}</td>
+        </tr>
+        <tr>
+          <td>Sort code:</td><td> {{ data.bank.sortCode01 }}-{{ data.bank.sortCode02 }}-{{ data.bank.sortCode03 }}</td>
+        </tr>
+        {% if data.building.rollNumber %}
+        <tr>
+          <td>Roll number:</td><td> {{ data.building.rollNumber  }}</td>
+        </tr>
+        {% endif %}
+      </table>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
