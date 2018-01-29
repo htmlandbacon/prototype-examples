@@ -11,6 +11,39 @@ if (
 }
 
 $(document).ready(function () {
+
+  // service nav
+  $(".js-step-title-button").click(function(event) {
+    if($(event.target).parent().parent().find('span').text() === "Show") {
+      $(event.target).parent().parent().find('span').text("Hide");
+    } else {
+      $(event.target).parent().parent().find('span').text("Show");
+    }
+    $(event.target).parent().parent().next('.js-panel').toggleClass('js-hidden');
+  });
+
+  $( ".js-toggle-link" ).click(function(event) {
+    if($(event.target).text() === "Show") {
+      $(event.target).text("Hide");
+    } else {
+      $(event.target).text("Show");
+    }
+    $(event.target).parent().next('.js-panel').toggleClass('js-hidden');
+  });
+  
+  $(".js-step-controls-button").click(function(event) {
+    if($(event.target).text() === "Show all") {
+      $(event.target).text("Hide all") 
+      $('.js-toggle-link').text("Hide");
+      $('.js-panel').removeClass("js-hidden");
+    } else {
+      $(event.target).text("Show all") 
+      $('.js-toggle-link').text("Show");
+      $('.js-panel').addClass("js-hidden");
+    }
+  });
+
+
   // Use GOV.UK shim-links-with-button-role.js to trigger a link styled to look like a button,
   // with role="button" when the space key is pressed.
   GOVUK.shimLinksWithButtonRole.init()

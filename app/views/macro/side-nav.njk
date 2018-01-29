@@ -1,0 +1,78 @@
+{% macro header(title, url) %}
+
+    <div class="pub-c-task-list-related" data-module="track-click">
+        <h2 class="pub-c-task-list-related__heading">
+            <span class="pub-c-task-list-related__pretitle">Part of</span>
+            <a href="{{ url }}" class="pub-c-task-list-related__link">
+                {{ title }}: step by step
+            </a>
+        </h2>
+    </div>
+
+{% endmacro %}
+
+{% macro showAllButton() %}
+    <div class="gem-c-task-list__controls">
+        <button aria-expanded="false" class="gem-c-task-list__button gem-c-task-list__button--controls js-step-controls-button" aria-controls="step-panel-check-you're-allowed-to-drive-1">Show all</button>
+    </div>
+{% endmacro %} 
+
+{% macro stepNumber(stepText) %}
+    <span class="gem-c-task-list__circle gem-c-task-list__circle--number">
+        <span class="gem-c-task-list__circle-inner">
+            <span class="gem-c-task-list__circle-background">
+               <span class="visuallyhidden">Step</span> {{ stepText }}
+            </span>
+        </span>
+    </span>
+{% endmacro %}
+
+{% macro stepText(stepText) %}
+    <div class="gem-c-task-list__circle gem-c-task-list__circle--logic">
+        <span class="gem-c-task-list__circle-inner">
+            <span class="gem-c-task-list__circle-background">
+               {{ stepText }}
+            </span>
+        </span>
+    </div>
+{% endmacro %}
+
+{% macro stepsDisplayed(title, position, intro, links) %}
+
+<div class="gem-c-task-list__step js-step" id="{{ title | lower  | replace(' ', '-') }}">
+
+    <div class="gem-c-task-list__header js-toggle-panel" data-position="{{ position }}">
+        <h3 class="gem-c-task-list__title js-step-title">
+            <button class="gem-c-task-list__button gem-c-task-list__button--title js-step-title-button" aria-expanded="false" aria-controls="{{ title | lower | replace(' ', '-') }}">
+                  {{ title }}
+            </button>
+        </h3>
+        
+        <span class="gem-c-task-list__toggle-link js-toggle-link">Show</span>
+    </div>
+
+    <div class="gem-c-task-list__panel js-panel js-hidden" id="step-panel-{{ title | lower | replace(' ', '-') }}">
+        {% if intro %}
+            {% for paragraphs in intro %}
+                <p class="gem-c-task-list__paragraph">{{ paragraphs }}</p>
+            {% endfor %}
+        {% endif %}
+        <ol class="gem-c-task-list__links gem-c-task-list__links--required" data-length="{{ links.length }}">
+            {% for link in links %}
+                <li class="gem-c-task-list__link{% if link.active %} gem-c-task-list__link-item--active{% endif %}">
+                    <a href="{{ link.url }}" class="gem-c-task-list__link-item js-link{% if link.active %} gem-c-task-list__link-item--active{% endif %}" data-position="{{ position }}.{{ loop.index }}">
+                    {% if link.pre %}
+                        <span class="visuallyhidden">You are currently viewing:</span> 
+                    {% endif %}
+                    {{ link.title }}
+                    {% if link.text %}
+                        <span class="gem-c-task-list__context">{{ link.text }}</span>
+                    {% endif %}
+                    </a>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+
+{% endmacro %}

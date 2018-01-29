@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+      Apply for a thing
+      </h1>
+
+      <p>this is an example service for applying for a thing.</p>
+
+      <p>Please note, you will not get a thing.</p>
+
+      <p>You will need:</p>
+      <ul class="list list-bullet">
+        <li>an name</li>
+        <li>an email</li>
+        <li>Details of your parrents</li>
+      </ul>
+
+      <a class="button button-start" href="/example/what-is-your-name" role="button">Start now</a>
+    </div>
+    <div class="column-one-third">
+      <div class="task-list-sidebar">
+        {% include "includes/side-example.njk" %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}

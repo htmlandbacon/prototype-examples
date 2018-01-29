@@ -1,0 +1,168 @@
+{% extends "layout.html" %}
+{% import './macro/side-nav.njk' as macro %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+      <h1 class="heading-xlarge">
+      Apply for a thing
+      </h1>
+
+      <p>this is an example service for applying for a thing.</p>
+
+      <p>Please note, you will not get a thing.</p>
+
+      <p>You will need:</p>
+      <ul class="list list-bullet">
+        <li>an name</li>
+        <li>an email</li>
+        <li>Details of your parrents</li>
+      </ul>
+
+      <a class="button button-start" href="/example/what-is-your-name" role="button">Start now</a>
+    </div>
+    <div class="column-one-third">
+      <div class="task-list-sidebar">
+       
+        {{ macro.header("Learn to drive a car", "/learn-to-drive-a-car") }}
+
+        <div data-module="gemtasklist" class="gem-c-task-list  gem-c-task-list--active">
+          
+          {{ macro.showAllButton() }}
+
+          <ol class="gem-c-task-list__groups">
+            <li class="gem-c-task-list__group">
+
+            {{ macro.stepNumber(1)  }}
+
+            {{ macro.stepsDisplayed("Check you're allowed to drive", 
+                                    1.1, 
+                                    ["Most people can start learning to drive when they’re 17."],
+                                    [
+                                      { url: '/vehicles-can-drive', 
+                                        title: 'Check what age you can drive'},
+                                      { url: '/legal-obligations-drivers-riders',
+                                        title: 'Requirements for driving legally'},
+                                      { url: '/driving-eyesight-rules',
+                                        title: 'Driving eyesight rules'}
+                                    ]) }}
+            </li>
+            <li class="gem-c-task-list__group gem-c-task-list__group--active">
+
+            {{ macro.stepNumber(2)  }}
+
+            {{ macro.stepsDisplayed("Get a provisional driving licence", 
+                                    2.1, 
+                                    "",
+                                    [
+                                      { pre: 'You are currently viewing:',
+                                        url: '#', 
+                                        title: 'Apply for your first provisional driving licence',
+                                        text: '£34',
+                                        active: true}
+                                    ]) }}
+            </li>
+            <li class="gem-c-task-list__group">
+
+            {{ macro.stepNumber(3)  }}
+
+            {{ macro.stepsDisplayed("Driving lessons and practice", 
+                                    3.1, 
+                                    ["You need a provisional driving licence to take lessons or practice."],
+                                    [
+                                      { url: '/guidance/the-highway-code', 
+                                        title: 'The Highway Code'},
+                                      { url: '/driving-lessons-learning-to-drive',
+                                        title: 'Taking driving lessons'},
+                                      { url: '/find-driving-schools-and-lessons',
+                                        title: 'Find driving schools, lessons and instructors'},
+                                      { url: '/government/publications/car-show-me-tell-me-vehicle-safety-questions',
+                                        title: 'Practise vehicle safety question'}
+                                    ]) }}
+
+              <div class="gem-c-task-list__step">
+              
+              {{ macro.stepText('and')  }}
+
+              {{ macro.stepsDisplayed("Prepare for your theory test", 
+                                      3.2, 
+                                      "",
+                                      [
+                                        { url: '/theory-test/revision-and-practice', 
+                                          title: 'Theory test revision and practice'},
+                                        { url: '/take-practice-theory-test',
+                                          title: 'Take a practice theory test'},
+                                        { url: 'https://www.safedrivingforlife.info/shop/product/official-dvsa-theory-test-kit-app-app',
+                                          title: 'Theory and hazard perception test app'}
+                                      ]) }}
+              </div>
+            </li>
+ <li class="gem-c-task-list__group">
+
+            {{ macro.stepNumber(4) }}
+
+            {{ macro.stepsDisplayed("Book and manage your theory test", 
+                                    4.1, 
+                                    ["You need a provisional driving licence to book your theory test."],
+                                    [
+                                      { url: '/book-theory-test', 
+                                        title: 'Book your theory test',
+                                        text: '£23'},
+                                      { url: '/theory-test/what-to-take',
+                                        title: 'What to take to your test'},
+                                      { url: '/change-theory-test',
+                                        title: 'Change your theory test appointment'},
+                                      { url: '/check-theory-test',
+                                        title: 'Check your theory test appointment details'},
+                                      { url: '/cancel-theory-test',
+                                        title: 'Cancel your theory test'}
+                                      ]) }}
+            </li>
+            <li class="gem-c-task-list__group">
+
+            {{ macro.stepNumber(5) }}
+
+            {{ macro.stepsDisplayed("Book and manage your driving test", 
+                                    5.1, 
+                                    ["You must pass your theory test before you can book your driving test."],
+                                    [
+                                      { url: '#', 
+                                        title: 'Book your driving test',
+                                        text: '£62'},
+                                      { url: '#',
+                                        title: 'What to take to your test'},
+                                      { url: '#',
+                                        title: 'Change your driving test appointment'},
+                                      { url: '#',
+                                        title: 'Check your driving test appointment details'},
+                                      { url: '#',
+                                        title: 'Cancel your driving test'}
+                                      ]) }}
+            </li>
+<li class="gem-c-task-list__group">
+
+            {{ macro.stepNumber(6) }}
+
+            {{ macro.stepsDisplayed("When you pass", 
+                                    6.1, 
+                                    ["You can start driving as soon as you pass your driving test.", "You must have an insurance policy that allows you to drive without supervision."],
+                                    [
+                                      { url: '#', 
+                                        title: 'Find out about Pass Plus training courses'}
+                                      ]) }}
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+{% endblock %}
