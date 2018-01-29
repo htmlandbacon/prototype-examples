@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% from 'gov-input/macro.njk' import govInput %}
+{% from 'macro/sortcode.njk' import sortCode %}
+{% from 'macro/global-error.njk' import errorGlobal %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  Pattern - Your bank details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      {{ macro.backLink('/bank-details/type-of-account') }}
+
+
+      {{ errorGlobal(errors) }}
+
+      <h1 class="heading-xlarge">
+        Your bank details
+      </h1>
+
+      <form method="post" action="/bank-details/bank-details" autocomplete="off">
+
+        {{ govInput("bankAccountHolder", "bankAccountHolder", "Account holder name", "", details.bankAccountHolder, errors.bankAccountHolder) }}
+
+        {{ sortCode("Sort code", {sortCodeField1: "First two digits", 
+                                  sortCodeField2: "Third and forth digit",
+                                  sortCodeField3: "Fith and sixth digit"}, 
+                                  "",
+                                  "",
+                                  {sortCodeField1: details.sortCodeField1, sortCodeField2: details.sortCodeField2, sortCodeField3: details.sortCodeField3},
+                                  errors.SortCodeField1, "") }}
+
+        {{ govInput("bankAccountNumber", "bankAccountNumber", "Account number", "", details.bankAccountNumber, errors.bankAccountNumber) }}
+
+                
+        <button class="button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% if javascript %}
+   <script src="/public/javascripts/to-do-list.js"></script>
+  {% endif %}
+{% endblock %}

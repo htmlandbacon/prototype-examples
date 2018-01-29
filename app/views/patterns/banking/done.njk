@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% from 'gov-radios/macro.njk' import govRadios %}
+{% import '../../macro/example.njk' as macro %}
+
+{% block page_title %}
+  Pattern - Your payment details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    
+      {{ macro.backLink('/') }}
+
+
+      <h1 class="heading-xlarge">
+        Payment details entered.
+      </h1>
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% if javascript %}
+   <script src="/public/javascripts/to-do-list.js"></script>
+  {% endif %}
+{% endblock %}

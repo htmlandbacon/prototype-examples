@@ -1,0 +1,20 @@
+{% macro errorGlobal(errors) %}
+
+    {% if errors %}
+        <div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+            <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+                Message to alert the user to a problem goes here
+            </h1>
+
+
+            <ul class="error-summary-list">
+                {% for key, value in errors %}
+                    <li><a href="#{{ key }}">{{ value }}</a></li>
+                {% endfor %}
+            </ul>
+
+    </div>
+    {% endif %}
+
+{% endmacro %}

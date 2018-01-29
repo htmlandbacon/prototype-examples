@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% from 'gov-input/macro.njk' import govInput %}
+
+{% block page_title %}
+  Components - Denote
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    
+  
+        <h1 id="legend-heading" class="heading-large">Components - Denote</h1>
+
+        <div id="example-question" class="form-group inline">
+            <span class="c-form-input-denote">£</span>
+            <input class="form-control c-form-input-denote__input form-control-1-4" aria-labelledby="legend-heading" type="text" name="example">
+        </div>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% if javascript %}
+   <script src="/public/javascripts/to-do-list.js"></script>
+  {% endif %}
+{% endblock %}

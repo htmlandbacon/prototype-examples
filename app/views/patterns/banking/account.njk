@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% import '../../macro/example.njk' as macro %}
+{% from 'gov-radios/macro.njk' import govRadios %}
+{% from 'macro/radio-new.njk' import govRadiosNew %}
+{% from 'macro/global-error.njk' import errorGlobal %}
+
+{% block page_title %}
+  Pattern - Your payment details
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    
+      {{ macro.backLink('/') }}
+
+      {{ errorGlobal(errors) }}
+
+      <h1 class="heading-xlarge">
+        Your payment details
+      </h1>
+
+      <form method="post" action="/bank-details/type-of-account">
+
+        {{ govRadiosNew('account',
+                        'account',
+                        'How would you like to get paid?',
+                        '', account, errors.account, 
+                        [
+                            {id: 'banking', value: 'banking', label: 'Bank account'},
+                            {id: 'building', value: 'building', label: 'Building society account'}
+                        ])
+                }}
+                
+        <button class="button">Continue</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% if javascript %}
+   <script src="/public/javascripts/to-do-list.js"></script>
+  {% endif %}
+{% endblock %}

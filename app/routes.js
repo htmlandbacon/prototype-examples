@@ -58,11 +58,28 @@ const autoSession = require('./auto-session/routes.js')
 
 router.use('/auto-session', autoSession)
 
+// patterns
+const patternsList = require('./add-to-a-list/routes.js')
+
+router.use('/patterns', patternsList)
 
 // examples from you */
 
 const leeds = require('./team/leeds.js')
 
 router.use('/leeds', leeds)
+
+
+// examples from you 
+
+const components = require('./components/router.js')
+
+router.use('/components', components)
+
+// banking details
+
+const bankPattern = require('./patterns/banking.js')
+
+router.use('/bank-details', bankPattern)
 
 module.exports = router

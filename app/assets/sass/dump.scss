@@ -1,0 +1,25 @@
+$button-color: #005ea5;
+
+.button-add:link, .button-add:visited {
+  background-color: $button-color;
+  color: $white;
+}
+
+
+.button-add:hover, .button-add:active, .button-add:link:focus {
+  color: $white;
+  background-color: darken($button-color, 5%);
+}
+
+
+.form-group-sort-code {
+  float: left;
+  width: 50px;
+  margin-right: 20px;
+  margin-bottom: 0;
+  clear: none;
+
+  .form-control {
+    width: 100%;
+  }
+}

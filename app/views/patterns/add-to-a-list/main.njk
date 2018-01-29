@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% from 'gov-input/macro.njk' import govInput %}
+
+{% block page_title %}
+  Pattern - Add to a list
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div class="grid-row">
+    <div class="column-two-thirds">
+    
+      <h1 class="heading-xlarge">
+        Add to a list?
+      </h1>
+
+        <p>Status: Not a thing.</p>
+
+      <form method="post" action="/patterns/add-to-a-list-review">
+      <fieldset class="js-list">
+        <legend class="heading-medium">Add things</legend>
+
+            {{ govInput('thing[]', 'thing-1', 'Thing 1', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            {{ govInput('thing[]', 'thing-2', 'thing 2', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            {{ govInput('thing[]', 'thing-3', 'thing 3', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            {{ govInput('thing[]', 'thing-4', 'thing 4', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            {{ govInput('thing[]', 'thing-5', 'thing 5', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            {{ govInput('thing[]', 'thing-6', 'thing 6', '', '', '', '', {label: 'visually-hidden'}) }}
+
+            <div id="add-button"></div>
+
+        </fieldset>
+
+        <button class="button">Submit</button>
+
+      </form>
+
+
+    </div>
+  </div>
+</main>
+
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% if javascript %}
+   <script src="/public/javascripts/to-do-list.js"></script>
+  {% endif %}
+{% endblock %}

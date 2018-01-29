@@ -1,18 +1,21 @@
-require('dotenv').config()
-var crypto = require('crypto')
-var path = require('path')
-var express = require('express')
-var session = require('express-session')
-var nunjucks = require('nunjucks')
-var routes = require('./app/routes.js')
-var favicon = require('serve-favicon')
-var app = express()
-var documentationApp = express()
-var bodyParser = require('body-parser')
-var browserSync = require('browser-sync')
-var config = require('./app/config.js')
-var utils = require('./lib/utils.js')
-var packageJson = require('./package.json')
+const path = require('path')
+const express = require('express')
+const session = require('express-session')
+const nunjucks = require('nunjucks')
+const favicon = require('serve-favicon')
+const bodyParser = require('body-parser')
+const browserSync = require('browser-sync')
+const crypto = require('crypto');
+
+const fs = require('fs')
+const https = require('https')
+
+const routes = require('./app/routes.js')
+const config = require('./app/config.js')
+const utils = require('./lib/utils.js')
+const packageJson = require('./package.json')
+
+let app = express()
 
 // Grab environment variables specified in Procfile or as Heroku config vars
 var releaseVersion = packageJson.version
@@ -86,23 +89,6 @@ app.use('/public/images/icons', express.static(path.join(__dirname, '/govuk_modu
 // Elements refers to icon folder instead of images folder
 app.use(favicon(path.join(__dirname, 'govuk_modules', 'govuk_template', 'assets', 'images', 'favicon.ico')))
 
-// Set up documentation app
-if (useDocumentation) {
-  var documentationViews = [path.join(__dirname, '/docs/views/'), path.join(__dirname, '/lib/')]
-
-  var nunjucksDocumentationEnv = nunjucks.configure(documentationViews, {
-    autoescape: true,
-    express: documentationApp,
-    noCache: true,
-    watch: true
-  })
-  // Nunjucks filters
-  utils.addNunjucksFilters(nunjucksDocumentationEnv)
-
-  // Set views engine
-  documentationApp.set('view engine', 'html')
-}
-
 // Support for parsing data in POSTs
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
@@ -171,7 +157,6 @@ var addCheckedFunction = function (app, nunjucksEnv) {
 if (useAutoStoreData === 'true') {
   app.use(utils.autoStoreData)
   addCheckedFunction(app, nunjucksAppEnv)
-  addCheckedFunction(documentationApp, nunjucksDocumentationEnv)
 }
 
 // Disallow search index idexing
@@ -261,15 +246,6 @@ app.get(/^\/([^.]+)$/, function (req, res) {
   utils.matchRoutes(req, res)
 })
 
-if (useDocumentation) {
-  // Documentation  routes
-  documentationApp.get(/^\/([^.]+)$/, function (req, res) {
-    if (!utils.matchMdRoutes(req, res)) {
-      utils.matchRoutes(req, res)
-    }
-  })
-}
-
 // redirect all POSTs to GETs - this allows users to use POST for autoStoreData
 app.post(/^\/([^.]+)$/, function (req, res) {
   res.redirect('/' + req.params[0])
@@ -285,6 +261,12 @@ utils.findAvailablePort(app, function (port) {
   if (env === 'production' || useBrowserSync === 'false') {
     app.listen(port)
   } else {
+    var key = fs.readFileSync('./keys/key.pem')
+    var cert = fs.readFileSync('./keys/cert.pem')
+
+    var server = https.createServer({key, cert}, app)
+    console.log('Listening on port ' + (port-99) + '   url: https://localhost:' + (port-99))
+    server.listen((port-99));
     app.listen(port - 50, function () {
       browserSync({
         proxy: 'localhost:' + (port - 50),

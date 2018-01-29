@@ -9,7 +9,19 @@ $path: "/public/images/";
 // Take a look at in app/assets/sass/patterns/ to see which files are imported.
 @import 'patterns/check-your-answers';
 @import 'patterns/task-list';
+
 @import 'patterns/service-nav';
+
+
+// compontents example 
+
+@import 'node_modules/components.form-input-denote/components.form-input-denote';
+
+@import 'dump.scss';
+
+@import 'updates/form-multiple-choice.scss';
+
+>>>>>>> 3bd1b07c43524f5dc7891c7d4982eace834cd196
 // Related items
 // (These styles will be moved to GOV.UK elements, duplicating here for now.)
 .govuk-related-items {
